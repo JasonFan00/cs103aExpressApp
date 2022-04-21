@@ -258,7 +258,7 @@ app.post('/courses/bySubject',
     const courses = await Course.find({subject:subject,independent_study:false}).sort({term:1,num:1,section:1})
     
     res.locals.courses = courses
-    res.locals.times2str = times2str
+    //res.locals.times2str = times2str
     //res.json(courses)
     res.render('courselist')
   }
@@ -312,7 +312,7 @@ app.post('/courses/byKeyword',
                 .find({name:{$regex: keyword}})
                 .sort({term:1,num:1,section:1})
     res.locals.courses = courses
-    res.locals.times2str = times2str
+    //res.locals.times2str = times2str
     res.render('courselist')
   }
 )
