@@ -301,6 +301,21 @@ app.post('/courses/byInst',
   }
 )
 
+//Tenzin 
+app.post('/courses/byKeyword',
+  // show list of course names containing the keyword 
+  async (req,res,next) => {
+    const keyword = req.body.keyword;
+   const courses=
+          await Course
+                .find({name:{$regex: keyword}})
+                .sort({term:1,num:1,section:1})
+    res.locals.courses = courses
+    res.locals.times2str = times2str
+    res.render('courselist')
+  }
+)
+
 app.use(isLoggedIn)
 
 app.get('/addCourse/:courseId',
