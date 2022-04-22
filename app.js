@@ -343,9 +343,9 @@ app.get('/schedule/show',
     try{
       const userId = res.locals.user._id;
       const courseIds = 
-         (await Schedule.find({userId}))
-                        .sort(x => x.term)
-                        .map(x => x.courseId)
+      (await Schedule.find({userId}))
+      .sort(x => x.term)
+      .map(x => x.courseId)
       res.locals.courses = await Course.find({_id:{$in: courseIds}})
       res.render('schedule')
     } catch(e){
