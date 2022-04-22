@@ -1,18 +1,14 @@
-<ul>
+<!-- Gisel U-->
+<div class="d-flex flex-wrap text-center overflow-scroll">
     <% for (course of courses){%>
-        <li> 
+        <div class="p-3 m-3 border border-primary bg-light">
             <a href="/schedule/remove/<%= course._id %>">X</a>
             <%= course['subject'] %>
             <%= course.coursenum %>
-            <%= course.name %>
-            <%= course.term %>
-            
-        </li>
+            <%= course.name %> 
+            <%= course.term %> <br>
+            Enrolled: <%= course.enrolled%> 
+            Status: <%= course.status_text%> 
+        </div>
     <% } %>
-</ul>
-
-<!--
-    <pre>
-        <%= JSON.stringify(courses,null,5) %>
-    </pre>
--->
+</div>
